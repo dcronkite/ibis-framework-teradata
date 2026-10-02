@@ -1,0 +1,39 @@
+[build-system]
+requires = ['setuptools>=77', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'ibis-framework-teradata'
+version = '0.1.0'
+description = 'Limited teradata backend for ibis'
+readme = 'README.md'
+requires-python = '>=3.11'
+dependencies = [
+    'ibis-framework==12.0.0',
+    'numpy>=2.4.6',
+    'pandas>=3.0.6',
+    'pyarrow>=25.0.1',
+    'pyarrow-hotfix>=0.7',
+    'sqlglot==30.21.0',
+    'teradatasql>=20.0.0.69',
+]
+
+[project.entry-points.'ibis.backends']
+teradata = 'ibis_framework_teradata'
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+[dependency-groups]
+dev = [
+    'hypothesis>=6.168.3',
+    'pytest>=9.1.1',
+    'pytest-mock>=3.16.0',
+    'polars>=1',
+]
+
+[tool.pytest.ini_options]
+testpaths = ['tests']
+pythonpath = ['src']
+addopts = '--strict-markers'
+markers = ['integration: requires an explicitly configured live Teradata server']
