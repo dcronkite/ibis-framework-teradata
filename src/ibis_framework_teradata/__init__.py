@@ -26,8 +26,7 @@ from ibis_framework_teradata._version import __version__
 from ibis_framework_teradata.compiler import compiler
 from ibis_framework_teradata.datatypes import TeradataType, schema_from_cursor
 
-__version__ = '0.1.0'
-__all__ = ['Backend']
+__all__ = ['Backend', '__version__']
 
 
 class Backend(SQLBackend, HasCurrentDatabase):
