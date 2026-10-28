@@ -22,6 +22,7 @@ import teradatasql
 from ibis.backends import HasCurrentDatabase
 from ibis.backends.sql import SQLBackend
 
+from ibis_framework_teradata._version import __version__
 from ibis_framework_teradata.compiler import compiler
 from ibis_framework_teradata.datatypes import TeradataType, schema_from_cursor
 
